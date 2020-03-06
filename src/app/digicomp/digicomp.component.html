@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#"><img src="../../assets/img/Digimon_Logo.svg" id="logo-digimon"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" id="search" (keyup)="filtrar()" placeholder="Buscar nombre o id" aria-label="Search">
+            <label>Niveles</label>
+            <select class="form-control" (change)="seleccionaNivel($event.target.value)">
+                <option value="0">Todos</option> 
+                <option value="{{nivel}}" *ngFor="let nivel of niveles">{{nivel}}</option>
+            </select>
+        </form>
+    </div>
+</nav>
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3" *ngFor="let digimon of digimones">
+        <div class="card">
+            <div class="card-body text-center">
+                <p><img class=" img-fluid" src="{{digimon.img}}" alt="card image"></p>
+                <h4 class="card-title">{{digimon.name}}</h4>
+                <p class="card-text">id: {{digimon.id}} | nivel: {{digimon.level}}</p>
+            </div>
+        </div>
+    </div>
+</div>
